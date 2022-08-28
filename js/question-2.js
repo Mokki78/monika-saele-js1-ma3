@@ -1,7 +1,9 @@
 
-const url = "https://api.rawg.io/api/games/names?dates=2019-01-01,2019-12-31&ordering=-rating&key=c55d886cf75943009ade4dccc2c9d60e";
+const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=c55d886cf75943009ade4dccc2c9d60e";
 
 const resultContainer = document.querySelector(".results");
+
+
 
 async function getData() {
     
@@ -13,22 +15,35 @@ async function getData() {
 
     console.log(data);
 
-    const info = data.object;
+    const info = data.results;
 
-    console.log(info);
+    resultContainer.innerHTML = "";
 
-    resultContainer.innerHTML = " ";
 
 for(let i = 0; i < info.length; i++ ){
-    console.log(info[i])
+
+    console.log(info[i].name)
 
     if(i === 8) {
         break
     }
 
-    resultContainer.innerHTML += `<div class="results">${info[i].text}</div>`;
+    resultContainer.innerHTML += `<div class="result">${info[i].name}</div>`;
 
 }
+
+for(let i = 0; i < info.length; i++ ){
+
+    console.log(info[i].rating)
+
+    if(i === 8) {
+        break
+    }
+
+    resultContainer.innerHTML += `<div class="result">${info[i].rating}</div>`;
+
+}
+
 }
 
 getData();
@@ -36,8 +51,7 @@ getData();
 
 
 
-// Loop through and display the following properties in HTML, 
-// but only for the first eight results
+// Loop through and display the following properties in HTML,// but only for the first eight results
 
 // name, rating, number of tags.
 
