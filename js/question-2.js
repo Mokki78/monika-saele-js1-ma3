@@ -7,6 +7,8 @@ const resultContainer = document.querySelector(".results");
 
 async function getData() {
     
+
+try{
     const response = await fetch(url);
 
     console.log(response);
@@ -17,7 +19,7 @@ async function getData() {
 
     const info = data.results;
 
-    resultContainer.innerHTML = "";
+    resultContainer.innerHTML = " ";
 
 
 for(let i = 0; i < info.length; i++ ){
@@ -43,7 +45,10 @@ for(let i = 0; i < info.length; i++ ){
     resultContainer.innerHTML += `<div class="result">${info[i].rating}</div>`;
 
 }
-
+} catch (error) {
+    console.log("An error has occurred");
+    resultContainer.innerHTML = "An error has occurred";
+}
 }
 
 getData();
@@ -51,10 +56,5 @@ getData();
 
 
 
-// Loop through and display the following properties in HTML,// but only for the first eight results
-
-// name, rating, number of tags.
-
 // Loading indicator when API is called.
 
-// use promise or await, async.
