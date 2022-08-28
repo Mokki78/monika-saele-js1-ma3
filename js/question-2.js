@@ -3,6 +3,7 @@ const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=
 
 const resultContainer = document.querySelector(".results");
 
+const loaderContainer = document.querySelector(".loader");
 
 async function getData() {
     
@@ -18,7 +19,8 @@ try{
 
     const info = data.results;
 
-    resultContainer.innerHTML = " ";
+
+    loaderContainer.innerHTML = "";
 
 
 for(let i = 0; i < info.length; i++ ){
@@ -44,6 +46,7 @@ for(let i = 0; i < info.length; i++ ){
     resultContainer.innerHTML += `<div class="result">${info[i].rating}</div>`;
 
 }
+
 } catch (error) {
     console.log("An error has occurred");
     resultContainer.innerHTML = "An error has occurred";
