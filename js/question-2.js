@@ -4,7 +4,6 @@ const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=
 const resultContainer = document.querySelector(".results");
 
 
-
 async function getData() {
     
 
@@ -56,5 +55,5 @@ getData();
 
 
 
-// Loading indicator when API is called.
+
 
